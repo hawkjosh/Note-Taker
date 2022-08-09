@@ -7,25 +7,6 @@ notes.get('/', (req, res) => {
   readNote('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
-// Route for retrieving specific note
-notes.get('/:id', (req, res) => {
-  const noteId = req.params.id;
-  readNote('./db/db.json').then((data) => JSON.parse(data)).then((json) => {
-    const result = json.filter((note) => note.id === noteId);
-    return result.length > 0 ? res.json(result) : res.json('No note with that ID');
-  });
-});
-
-// Route for deleting specific note
-notes.delete('/:id', (req, res) => {
-  const noteId = req.params.id;
-  readNote('./db/db.json').then((data) => JSON.parse(data)).then((json) => {
-    const result = json.filter((note) => note.id !== noteId);
-    writeNote('./db/db.json', result);
-    res.json(`Item ${noteId} has been deleted`);
-  });
-});
-
 // Route for posting new note
 notes.post('/', (req, res) => {
   const { title, text } = req.body;
@@ -37,8 +18,18 @@ notes.post('/', (req, res) => {
     };
     const noteId = req.params.id;
     updateNote(newNote, './db/db.json');
-    res.json(`Note ${noteId} has been posted`);
+    res.json(`New note ${noteId} has been posted.`);
   } 
+});
+
+// Route for deleting existing note
+notes.delete('/:id', (req, res) => {
+  const noteId = req.params.id;
+  readNote('./db/db.json').then((data) => JSON.parse(data)).then((json) => {
+    const result = json.filter((note) => note.id !== noteId);
+    writeNote('./db/db.json', result);
+    res.json(`Note ${noteId} has been deleted.`);
+  });
 });
 
 module.exports = notes;
