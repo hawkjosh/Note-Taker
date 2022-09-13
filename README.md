@@ -1,4 +1,4 @@
-# module11-note-taker-challenge
+# Note-Taker
 
 ## Description
 
