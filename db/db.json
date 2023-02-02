@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "title": "New Note",
+        "text": "This is a test note!",
+        "id": "a466a2fc-c5cf-4c7d-8ad3-97bcd031436b"
+    },
+    {
+        "title": "New Note 2",
+        "text": "This is another test note!!",
+        "id": "940bf8cb-490d-4ed3-9894-b63b5b697d02"
+    },
+    {
+        "title": "New Note 3",
+        "text": "This is yet another test note!!!",
+        "id": "0add8ae1-3c06-48f2-a0fa-c5b5e5b43347"
+    },
+    {
+        "title": "New Note 4",
+        "text": "This is the fourth test note!!!!",
+        "id": "693533f2-be0c-4cad-b469-178b48ba4440"
+    }
+]
